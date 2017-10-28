@@ -1,0 +1,166 @@
+
+<head>
+    <meta charset="utf-8">
+    <title>The fifth sense</title>
+
+    <!-- Bootstrap 3 -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+            background-color: black;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .navbar-header {
+        text-align: center;
+        margin: 0 auto;
+        }
+        
+        .navbar-brand {
+            text-align: center;
+            font-size: 20px;
+            margin: 0 auto;
+        }
+
+        .navbar-brand:hover {
+            color: #EEE;
+        }
+
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+            color: #C0C0C0	;
+        }
+
+        .movie_title {
+            font-size: 24px;
+            line-height: 30px;
+
+        }
+        .movie-tile:hover {
+            background-color: #ffffff;
+            cursor: pointer;
+            color: black;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">The Fifth Sense Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="BxVZUZpKqVI" data-toggle="modal" data-target="#trailer">
+    <img src="https://vice-thefifthsense-assets-cdn.vice.com/_1040xAUTO_crop_center-center/HW_BERLIN_20_1600.jpg" width="220" height="342">
+    <h2 class="movie_title">this is how i see music in my head</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="Fq9sZtqSMb8" data-toggle="modal" data-target="#trailer">
+    <img src="https://vice-thefifthsense-assets-cdn.vice.com/_800xAUTO_crop_center-center/HW_JBOURGH006_1600.jpg" width="220" height="342">
+    <h2 class="movie_title">don't be five minutes, be timeless</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="AtzQrWQctD8" data-toggle="modal" data-target="#trailer">
+    <img src="http://fashioncow.com/flowerpower/wp-content/uploads/2017/05/iD-Summer-2017-Adut-Akech-Nyaueth-Riam-by-Harley-Weir-02-1.jpg" width="220" height="342">
+    <h2 class="movie_title">a mixture between documentary and fantasy</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="81PxGQfZ92A" data-toggle="modal" data-target="#trailer">
+    <img src="https://vice-thefifthsense-assets-cdn.vice.com/_600xAUTO_crop_center-center/HW_CHANEL_LA010_1600.jpg" width="220" height="342">
+    <h2 class="movie_title">i am not your baby girl, i will swallow you whole</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ta56-qYiOMA" data-toggle="modal" data-target="#trailer">
+    <img src="https://vice-thefifthsense-assets-cdn.vice.com/_1040xAUTO_crop_center-center/HW_TOKYO005_1600.jpg" width="220" height="342">
+    <h2 class="movie_title">the documentary of flesh and blood</h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ubAFcWJAw2o" data-toggle="modal" data-target="#trailer">
+    <img src="https://vice-thefifthsense-assets-cdn.vice.com/_800xAUTO_crop_center-center/HW_PARIS010_1600.jpg" width="220" height="342">
+    <h2 class="movie_title">daughter of a warrior</h2>
+</div>
+
+    </div>
+  </body>
+</html>
