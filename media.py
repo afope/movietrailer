@@ -11,10 +11,10 @@ class Movie():
         movie title, the movie storyline, the poster image, and the
         ypoutube trailer"""
 
-            self.title = movie_title
-            self.storyline = movie_storyline
-            self.poster_image_url = poster_image
-            self.youtube_trailer_url = trailer_youtube
+        self.title = movie_title
+        self.storyline = movie_storyline
+        self.poster_image_url = poster_image
+        self.youtube_trailer_url = trailer_youtube
 
     def show_trailer(self):
         """This function calls self and opens trailer on youtube"""
